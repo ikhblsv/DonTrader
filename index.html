@@ -45,13 +45,14 @@
 
   /* ——— NAVBAR ——— */
   .navbar {
-    position: absolute;
+    position: fixed;
     top: 0; left: 0; width: 100%;
     padding: 1.2rem 2rem;
     display: flex; justify-content: space-between; align-items: center;
     z-index: 100;
-    background: rgba(6,11,20,0.85);
-    backdrop-filter: blur(10px);
+    background: rgba(6,11,20,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(74,144,217,0.08);
   }
   .nav-logo {
     font-family: 'Playfair Display', serif;
@@ -200,9 +201,20 @@
     margin-bottom: 2rem;
   }
   .section-title span { color: var(--blue); }
+  .section-subtitle {
+    color: var(--text-dim); font-size: 1.05rem;
+    max-width: 600px; line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
   .blue-line {
     width: 60px; height: 2px;
     background: var(--blue); margin-bottom: 2rem;
+  }
+
+  /* ——— SECTION CTA BUTTON ——— */
+  .section-cta {
+    margin-top: 2.5rem;
+    text-align: center;
   }
 
   /* ——— STORY / TIMELINE ——— */
@@ -259,6 +271,106 @@
   }
   .phil-card p { color: var(--text-dim); line-height: 1.6; font-size: .95rem; }
 
+  /* ——— METHODOLOGY ——— */
+  .method-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem; margin-top: 2rem;
+  }
+  .method-card {
+    background: var(--bg-card);
+    border: 1px solid #162033;
+    border-radius: 12px;
+    padding: 2.2rem 1.8rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color .3s, transform .3s;
+  }
+  .method-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--blue), transparent);
+  }
+  .method-card:hover {
+    border-color: var(--blue);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(74,144,217,0.12);
+  }
+  .method-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; color: rgba(74,144,217,0.15);
+    position: absolute; top: .8rem; right: 1.2rem;
+    font-weight: 700;
+  }
+  .method-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+  .method-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--white); margin-bottom: .6rem; font-size: 1.15rem;
+  }
+  .method-card p {
+    color: var(--text-dim); line-height: 1.6; font-size: .92rem;
+  }
+  .method-tag {
+    display: inline-block; margin-top: 1rem;
+    padding: .3rem .8rem; border-radius: 20px;
+    background: rgba(74,144,217,0.1);
+    color: var(--blue); font-size: .75rem;
+    letter-spacing: 1px; text-transform: uppercase;
+  }
+
+  /* ——— COMPARISON TABLE ——— */
+  .compare-section { text-align: center; }
+  .compare-table {
+    width: 100%; max-width: 800px;
+    margin: 2rem auto 0;
+    border-collapse: collapse;
+  }
+  .compare-table th,
+  .compare-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid #162033;
+    font-size: .95rem;
+  }
+  .compare-table thead th {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--white);
+    border-bottom: 2px solid var(--blue);
+    padding-bottom: 1.2rem;
+  }
+  .compare-table thead th:first-child {
+    color: var(--text-dim);
+  }
+  .compare-table thead th:nth-child(2) {
+    color: var(--blue);
+  }
+  .compare-table thead th:nth-child(3) {
+    color: var(--text-dim);
+  }
+  .compare-table td:first-child {
+    color: var(--text-dim);
+    font-size: .85rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+  .compare-table td:nth-child(2) {
+    color: var(--white); font-weight: 600;
+  }
+  .compare-table td:nth-child(3) {
+    color: var(--text-dim);
+  }
+  .check { color: #4ade80; font-weight: 700; }
+  .cross { color: #f87171; }
+  .partial { color: #fbbf24; }
+
+  @media(max-width:600px) {
+    .compare-table th,
+    .compare-table td {
+      padding: .7rem .5rem; font-size: .82rem;
+    }
+  }
+
   /* ——— LIFESTYLE GRID ——— */
   .lifestyle-grid {
     display: grid;
@@ -292,6 +404,72 @@
 
   @media(max-width:768px) {
     .profile-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ——— URGENCY / TIMER ——— */
+  .urgency {
+    text-align: center;
+    padding: 5rem 8%;
+    background: linear-gradient(180deg, var(--bg) 0%, #0a1628 50%, var(--bg) 100%);
+    position: relative;
+  }
+  .urgency::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%; transform: translateX(-50%);
+    width: 200px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--blue), transparent);
+  }
+  .urgency h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem; color: var(--white);
+    margin-bottom: .8rem;
+  }
+  .urgency h2 span { color: var(--blue); }
+  .urgency .urgency-sub {
+    color: var(--text-dim); font-size: 1rem;
+    margin-bottom: 2.5rem; max-width: 550px; margin-inline: auto;
+    line-height: 1.7;
+  }
+  .timer-wrap {
+    display: flex; justify-content: center; gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .timer-box {
+    background: var(--bg-card);
+    border: 1px solid #162033;
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    min-width: 90px;
+    text-align: center;
+    transition: border-color .3s;
+  }
+  .timer-box:hover { border-color: var(--blue); }
+  .timer-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; color: var(--blue);
+    line-height: 1;
+  }
+  .timer-label {
+    font-size: .7rem; color: var(--text-dim);
+    text-transform: uppercase; letter-spacing: 1.5px;
+    margin-top: .4rem;
+  }
+  .urgency-trust {
+    display: flex; justify-content: center; gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: .5rem;
+    color: var(--text-dim); font-size: .85rem;
+  }
+  .trust-icon { color: var(--blue); font-size: 1.1rem; }
+
+  @media(max-width:500px) {
+    .timer-wrap { gap: .8rem; }
+    .timer-box { padding: 1rem; min-width: 70px; }
+    .timer-num { font-size: 2rem; }
   }
 
   /* ——— CTA ——— */
@@ -347,7 +525,9 @@
   <ul class="nav-links">
     <li><a href="#histoire">Histoire</a></li>
     <li><a href="#parcours">Parcours</a></li>
+    <li><a href="#methode">Méthode</a></li>
     <li><a href="#philosophie">Philosophie</a></li>
+    <li><a href="#avantages">Avantages</a></li>
     <li><a href="#profil">Profil</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -385,7 +565,7 @@
     <div class="hero-buttons">
       <a href="https://tg.trading-top.com/2wgGX8KGr6" target="_blank" class="btn-primary">
         <svg class="btn-icon" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-        Rejoindre le Canal
+        Commencer Aujourd'hui
       </a>
       <a href="https://www.youtube.com/channel/UCLx3cdmlrqVYb_BkeukyG5g" target="_blank" class="btn-secondary">
         <svg class="btn-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
@@ -410,6 +590,11 @@
     <p>Je suis né à Lyon, dans un quartier populaire. Mon père était mécanicien, ma mère aide-soignante. Très jeune, j'ai compris que la réussite ne viendrait pas de mon environnement, mais de ma détermination. À 16 ans, je passais mes nuits à lire des livres sur l'économie et la finance.</p>
     <p>Après un BTS en gestion, j'ai découvert le trading en 2014 grâce à un ami qui spéculait sur le Forex. J'ai perdu mes premières économies en quelques semaines. Mais cette douleur est devenue mon meilleur professeur. J'ai tout repris de zéro, méthodiquement, avec discipline.</p>
     <p>Aujourd'hui, je vis à Monaco, je gère une communauté de plus de 40 000 traders francophones et je consacre mon énergie à transmettre ce que le marché m'a appris : la patience, la rigueur et le contrôle de soi.</p>
+  </div>
+  <div class="section-cta">
+    <a href="https://tg.trading-top.com/2wgGX8KGr6" target="_blank" class="btn-primary">
+      Rejoindre Mon Équipe
+    </a>
   </div>
 </section>
 
@@ -443,6 +628,53 @@
       <p>40 000+ élèves dans 15 pays francophones. Focus sur la démocratisation de l'éducation financière en Afrique et en Europe.</p>
     </div>
   </div>
+  <div class="section-cta">
+    <a href="https://tg.trading-top.com/2wgGX8KGr6" target="_blank" class="btn-primary">
+      Faire le Pas Vers Votre Avenir
+    </a>
+  </div>
+</section>
+
+<!-- ★ NEW: MÉTHODOLOGIE ★ -->
+<section id="methode" class="fade-in">
+  <div class="blue-line"></div>
+  <h2 class="section-title">Ma Méthodologie, <span>Votre Résultat</span></h2>
+  <p class="section-subtitle">Ce que je vous offre concrètement pour transformer votre trading dès les premiers jours.</p>
+  <div class="method-grid">
+    <div class="method-card">
+      <div class="method-num">01</div>
+      <div class="method-icon">📡</div>
+      <h3>Signaux Gratuits — Canal FREE</h3>
+      <p>Accédez directement à mon canal gratuit avec des signaux en temps réel. Analyse quotidienne, entrées précises et résultats transparents.</p>
+      <div class="method-tag">Accès Immédiat</div>
+    </div>
+    <div class="method-card">
+      <div class="method-num">02</div>
+      <div class="method-icon">🏆</div>
+      <h3>Marathons &amp; Canal VIP</h3>
+      <p>Rejoignez le canal VIP pour des signaux avec un taux de réussite supérieur. Participez aux marathons de trading avec des objectifs concrets.</p>
+      <div class="method-tag">Taux Élevé</div>
+    </div>
+    <div class="method-card">
+      <div class="method-num">03</div>
+      <div class="method-icon">🔗</div>
+      <h3>Copy-Trading en Direct</h3>
+      <p>Tradez directement avec moi. Copiez mes positions en temps réel et apprenez en observant chaque décision que je prends sur le marché.</p>
+      <div class="method-tag">Trading en Direct</div>
+    </div>
+    <div class="method-card">
+      <div class="method-num">04</div>
+      <div class="method-icon">📚</div>
+      <h3>Formation &amp; Money Management</h3>
+      <p>Matériel éducatif complet : analyse technique, gestion du capital, psychologie du trading. Apprenez à protéger votre argent dès le premier jour.</p>
+      <div class="method-tag">Éducation Complète</div>
+    </div>
+  </div>
+  <div class="section-cta">
+    <a href="https://tg.trading-top.com/2wgGX8KGr6" target="_blank" class="btn-primary">
+      Recevoir 2 Signaux Gratuits
+    </a>
+  </div>
 </section>
 
 <!-- PHILOSOPHIE -->
@@ -471,6 +703,69 @@
       <p>Pas de raccourcis. La réussite est le fruit d'un travail constant, d'une remise en question permanente et d'une exigence envers soi-même.</p>
     </div>
   </div>
+  <div class="section-cta">
+    <a href="https://tg.trading-top.com/2wgGX8KGr6" target="_blank" class="btn-primary">
+      Rejoindre le Canal
+    </a>
+  </div>
+</section>
+
+<!-- ★ NEW: COMPARAISON ★ -->
+<section id="avantages" class="compare-section fade-in">
+  <div class="blue-line" style="margin-inline:auto;"></div>
+  <h2 class="section-title">Pourquoi les Traders <span>Me Choisissent</span></h2>
+  <p class="section-subtitle" style="margin-inline:auto; text-align:center;">La différence entre un mentor qui s'implique et un simple canal de signaux.</p>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Critère</th>
+        <th>🔷 Avec Don Trader</th>
+        <th>Avec d'autres traders</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Support Personnel</td>
+        <td><span class="check">✓</span> 24/7 — je réponds personnellement</td>
+        <td><span class="cross">✗</span> Pas de réponse ou bots</td>
+      </tr>
+      <tr>
+        <td>Matériel Éducatif</td>
+        <td><span class="check">✓</span> Vidéos, guides, sessions live</td>
+        <td><span class="partial">~</span> Quelques PDF génériques</td>
+      </tr>
+      <tr>
+        <td>Money Management</td>
+        <td><span class="check">✓</span> Dès le premier jour</td>
+        <td><span class="cross">✗</span> Jamais mentionné</td>
+      </tr>
+      <tr>
+        <td>Transparence des Résultats</td>
+        <td><span class="check">✓</span> Statistiques publiques</td>
+        <td><span class="cross">✗</span> Résultats cachés</td>
+      </tr>
+      <tr>
+        <td>Copy-Trading</td>
+        <td><span class="check">✓</span> Tradez avec moi en direct</td>
+        <td><span class="cross">✗</span> Signaux retardés</td>
+      </tr>
+      <tr>
+        <td>Communauté Active</td>
+        <td><span class="check">✓</span> 40K+ traders, échanges quotidiens</td>
+        <td><span class="partial">~</span> Groupes silencieux</td>
+      </tr>
+      <tr>
+        <td>Canal Gratuit</td>
+        <td><span class="check">✓</span> Signaux FREE chaque jour</td>
+        <td><span class="cross">✗</span> Tout est payant</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="section-cta">
+    <a href="https://tg.trading-top.com/2wgGX8KGr6" target="_blank" class="btn-primary">
+      Rejoindre Mon Équipe Maintenant
+    </a>
+  </div>
 </section>
 
 <!-- STYLE DE VIE -->
@@ -481,6 +776,11 @@
     <img src="images/don-work.jpg" alt="Don Trader en analyse">
     <img src="images/don-life.jpg" alt="Don Trader style de vie">
     <img src="images/don-hero.jpg" alt="Don Trader portrait">
+  </div>
+  <div class="section-cta">
+    <a href="https://tg.trading-top.com/2wgGX8KGr6" target="_blank" class="btn-primary">
+      Construire Ce Style de Vie
+    </a>
   </div>
 </section>
 
@@ -522,6 +822,48 @@
       <span class="profile-value">BTS Gestion · Autodidacte</span>
     </div>
   </div>
+  <div class="section-cta">
+    <a href="https://tg.trading-top.com/2wgGX8KGr6" target="_blank" class="btn-primary">
+      Apprendre Avec Moi
+    </a>
+  </div>
+</section>
+
+<!-- ★ NEW: URGENCY TIMER ★ -->
+<section class="urgency fade-in">
+  <h2>Connectez-vous <span>Maintenant</span></h2>
+  <p class="urgency-sub">Recevez une session d'essai gratuite aujourd'hui + une stratégie personnalisée pour bien démarrer.</p>
+  <div class="timer-wrap">
+    <div class="timer-box">
+      <div class="timer-num" id="timer-h">05</div>
+      <div class="timer-label">Heures</div>
+    </div>
+    <div class="timer-box">
+      <div class="timer-num" id="timer-m">00</div>
+      <div class="timer-label">Minutes</div>
+    </div>
+    <div class="timer-box">
+      <div class="timer-num" id="timer-s">00</div>
+      <div class="timer-label">Secondes</div>
+    </div>
+  </div>
+  <div class="urgency-trust">
+    <div class="trust-item">
+      <span class="trust-icon">📊</span>
+      Statistiques transparentes
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🎯</span>
+      Session d'essai gratuite
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🤝</span>
+      Prenez votre décision librement
+    </div>
+  </div>
+  <a href="https://tg.trading-top.com/2wgGX8KGr6" target="_blank" class="btn-primary" style="font-size:1rem; padding:1.1rem 2.5rem;">
+    Obtenir Ma Session Gratuite
+  </a>
 </section>
 
 <!-- CTA -->
@@ -567,6 +909,42 @@
     });
   }, { threshold: 0.15 });
   faders.forEach(el => observer.observe(el));
+
+  // ——— COUNTDOWN TIMER ———
+  // Resets every 5 hours from first visit (stored in localStorage)
+  (function() {
+    const DURATION = 5 * 60 * 60 * 1000; // 5 hours in ms
+    const KEY = 'don_timer_end';
+    let end = localStorage.getItem(KEY);
+
+    if (!end || Date.now() > Number(end)) {
+      end = Date.now() + DURATION;
+      localStorage.setItem(KEY, end);
+    } else {
+      end = Number(end);
+    }
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function tick() {
+      let diff = end - Date.now();
+      if (diff <= 0) {
+        // Reset timer when it hits 0
+        end = Date.now() + DURATION;
+        localStorage.setItem(KEY, end);
+        diff = DURATION;
+      }
+      const h = Math.floor(diff / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      document.getElementById('timer-h').textContent = pad(h);
+      document.getElementById('timer-m').textContent = pad(m);
+      document.getElementById('timer-s').textContent = pad(s);
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  })();
 </script>
 
 </body>

@@ -210,8 +210,6 @@
     width: 60px; height: 2px;
     background: var(--blue); margin-bottom: 2rem;
   }
-
-  /* ——— SECTION CTA BUTTON ——— */
   .section-cta {
     margin-top: 2.5rem;
     text-align: center;
@@ -249,27 +247,22 @@
   }
   .timeline-item p { color: var(--text-dim); line-height: 1.6; }
 
-  /* ——— PHILOSOPHY ——— */
-  .philosophy-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem; margin-top: 2rem;
+  /* ——— INLINE PHOTO BREAK ——— */
+  .photo-break {
+    padding: 3rem 8%;
+    display: flex; justify-content: center;
   }
-  .phil-card {
-    background: var(--bg-card); border: 1px solid #162033;
-    border-radius: 10px; padding: 2rem;
-    transition: border-color .3s, transform .3s;
+  .photo-break img {
+    width: 100%; max-width: 700px;
+    border-radius: 10px;
+    border: 1px solid rgba(74,144,217,0.12);
+    filter: contrast(1.08) brightness(0.92);
+    transition: filter .4s, border-color .4s;
   }
-  .phil-card:hover {
+  .photo-break img:hover {
+    filter: contrast(1.12) brightness(1);
     border-color: var(--blue);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(74,144,217,0.1);
   }
-  .phil-icon { font-size: 2rem; margin-bottom: 1rem; }
-  .phil-card h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--white); margin-bottom: .5rem;
-  }
-  .phil-card p { color: var(--text-dim); line-height: 1.6; font-size: .95rem; }
 
   /* ——— METHODOLOGY ——— */
   .method-grid {
@@ -339,54 +332,22 @@
     border-bottom: 2px solid var(--blue);
     padding-bottom: 1.2rem;
   }
-  .compare-table thead th:first-child {
-    color: var(--text-dim);
-  }
-  .compare-table thead th:nth-child(2) {
-    color: var(--blue);
-  }
-  .compare-table thead th:nth-child(3) {
-    color: var(--text-dim);
-  }
+  .compare-table thead th:first-child { color: var(--text-dim); }
+  .compare-table thead th:nth-child(2) { color: var(--blue); }
+  .compare-table thead th:nth-child(3) { color: var(--text-dim); }
   .compare-table td:first-child {
-    color: var(--text-dim);
-    font-size: .85rem;
-    text-transform: uppercase;
-    letter-spacing: .5px;
+    color: var(--text-dim); font-size: .85rem;
+    text-transform: uppercase; letter-spacing: .5px;
   }
-  .compare-table td:nth-child(2) {
-    color: var(--white); font-weight: 600;
-  }
-  .compare-table td:nth-child(3) {
-    color: var(--text-dim);
-  }
+  .compare-table td:nth-child(2) { color: var(--white); font-weight: 600; }
+  .compare-table td:nth-child(3) { color: var(--text-dim); }
   .check { color: #4ade80; font-weight: 700; }
   .cross { color: #f87171; }
   .partial { color: #fbbf24; }
 
   @media(max-width:600px) {
     .compare-table th,
-    .compare-table td {
-      padding: .7rem .5rem; font-size: .82rem;
-    }
-  }
-
-  /* ——— LIFESTYLE GRID ——— */
-  .lifestyle-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem; margin-top: 2rem;
-  }
-  .lifestyle-grid img {
-    width: 100%; border-radius: 8px;
-    filter: contrast(1.05) brightness(0.9);
-    border: 1px solid rgba(74,144,217,0.1);
-    transition: filter .4s, transform .4s, border-color .4s;
-  }
-  .lifestyle-grid img:hover {
-    filter: contrast(1.1) brightness(1);
-    transform: scale(1.02);
-    border-color: var(--blue);
+    .compare-table td { padding: .7rem .5rem; font-size: .82rem; }
   }
 
   /* ——— PROFILE / FACTS ——— */
@@ -395,12 +356,16 @@
     gap: 1rem; max-width: 700px; margin-top: 2rem;
   }
   .profile-item {
-    display: flex; justify-content: space-between;
+    display: flex; flex-direction: column;
     padding: .8rem 0;
     border-bottom: 1px solid #162033;
   }
-  .profile-label { color: var(--text-dim); font-size: .85rem; text-transform: uppercase; letter-spacing: 1px; }
-  .profile-value { color: var(--white); font-weight: 600; }
+  .profile-label {
+    color: var(--text-dim); font-size: .75rem;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    margin-bottom: .3rem;
+  }
+  .profile-value { color: var(--white); font-weight: 600; font-size: .95rem; }
 
   @media(max-width:768px) {
     .profile-grid { grid-template-columns: 1fr; }
@@ -526,7 +491,6 @@
     <li><a href="#histoire">Histoire</a></li>
     <li><a href="#parcours">Parcours</a></li>
     <li><a href="#methode">Méthode</a></li>
-    <li><a href="#philosophie">Philosophie</a></li>
     <li><a href="#avantages">Avantages</a></li>
     <li><a href="#profil">Profil</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -598,6 +562,11 @@
   </div>
 </section>
 
+<!-- 📸 PHOTO BREAK 1 — don-work (после истории) -->
+<div class="photo-break fade-in">
+  <img src="images/don-work.jpg" alt="Don Trader — analyse des marchés">
+</div>
+
 <!-- PARCOURS -->
 <section id="parcours" class="fade-in">
   <div class="blue-line"></div>
@@ -635,7 +604,12 @@
   </div>
 </section>
 
-<!-- ★ NEW: MÉTHODOLOGIE ★ -->
+<!-- 📸 PHOTO BREAK 2 — don-life (после parcours) -->
+<div class="photo-break fade-in">
+  <img src="images/don-life.jpg" alt="Don Trader — style de vie Monaco">
+</div>
+
+<!-- MÉTHODOLOGIE -->
 <section id="methode" class="fade-in">
   <div class="blue-line"></div>
   <h2 class="section-title">Ma Méthodologie, <span>Votre Résultat</span></h2>
@@ -677,40 +651,7 @@
   </div>
 </section>
 
-<!-- PHILOSOPHIE -->
-<section id="philosophie" class="fade-in">
-  <div class="blue-line"></div>
-  <h2 class="section-title">Ma <span>Philosophie</span></h2>
-  <div class="philosophy-grid">
-    <div class="phil-card">
-      <div class="phil-icon">🧊</div>
-      <h3>Sang-froid Absolu</h3>
-      <p>Le marché teste vos émotions en permanence. Seuls ceux qui restent calmes dans la tempête en sortent gagnants.</p>
-    </div>
-    <div class="phil-card">
-      <div class="phil-icon">📐</div>
-      <h3>Rigueur Méthodique</h3>
-      <p>Chaque trade est planifié. Entrée, sortie, gestion du risque — rien n'est laissé au hasard.</p>
-    </div>
-    <div class="phil-card">
-      <div class="phil-icon">🌍</div>
-      <h3>Partage du Savoir</h3>
-      <p>La connaissance n'a de valeur que lorsqu'elle est transmise. Mon objectif : rendre la finance accessible à tous les francophones.</p>
-    </div>
-    <div class="phil-card">
-      <div class="phil-icon">🔷</div>
-      <h3>Excellence Quotidienne</h3>
-      <p>Pas de raccourcis. La réussite est le fruit d'un travail constant, d'une remise en question permanente et d'une exigence envers soi-même.</p>
-    </div>
-  </div>
-  <div class="section-cta">
-    <a href="https://tg.trading-top.com/2wgGX8KGr6" target="_blank" class="btn-primary">
-      Rejoindre le Canal
-    </a>
-  </div>
-</section>
-
-<!-- ★ NEW: COMPARAISON ★ -->
+<!-- COMPARAISON -->
 <section id="avantages" class="compare-section fade-in">
   <div class="blue-line" style="margin-inline:auto;"></div>
   <h2 class="section-title">Pourquoi les Traders <span>Me Choisissent</span></h2>
@@ -768,21 +709,10 @@
   </div>
 </section>
 
-<!-- STYLE DE VIE -->
-<section class="fade-in">
-  <div class="blue-line"></div>
-  <h2 class="section-title">Style de <span>Vie</span></h2>
-  <div class="lifestyle-grid">
-    <img src="images/don-work.jpg" alt="Don Trader en analyse">
-    <img src="images/don-life.jpg" alt="Don Trader style de vie">
-    <img src="images/don-hero.jpg" alt="Don Trader portrait">
-  </div>
-  <div class="section-cta">
-    <a href="https://tg.trading-top.com/2wgGX8KGr6" target="_blank" class="btn-primary">
-      Construire Ce Style de Vie
-    </a>
-  </div>
-</section>
+<!-- 📸 PHOTO BREAK 3 — don-hero повтор (после сравнения, перед профилем) -->
+<div class="photo-break fade-in">
+  <img src="images/don-hero.jpg" alt="Don Trader — portrait">
+</div>
 
 <!-- PROFIL -->
 <section id="profil" class="fade-in">
@@ -807,7 +737,7 @@
     </div>
     <div class="profile-item">
       <span class="profile-label">Spécialité</span>
-      <span class="profile-value">Forex · Indices · Matières Premières</span>
+      <span class="profile-value">Trading · Options Binaires</span>
     </div>
     <div class="profile-item">
       <span class="profile-label">Expérience</span>
@@ -829,7 +759,7 @@
   </div>
 </section>
 
-<!-- ★ NEW: URGENCY TIMER ★ -->
+<!-- URGENCY TIMER -->
 <section class="urgency fade-in">
   <h2>Connectez-vous <span>Maintenant</span></h2>
   <p class="urgency-sub">Recevez une session d'essai gratuite aujourd'hui + une stratégie personnalisée pour bien démarrer.</p>
@@ -911,9 +841,8 @@
   faders.forEach(el => observer.observe(el));
 
   // ——— COUNTDOWN TIMER ———
-  // Resets every 5 hours from first visit (stored in localStorage)
   (function() {
-    const DURATION = 5 * 60 * 60 * 1000; // 5 hours in ms
+    const DURATION = 5 * 60 * 60 * 1000;
     const KEY = 'don_timer_end';
     let end = localStorage.getItem(KEY);
 
@@ -929,7 +858,6 @@
     function tick() {
       let diff = end - Date.now();
       if (diff <= 0) {
-        // Reset timer when it hits 0
         end = Date.now() + DURATION;
         localStorage.setItem(KEY, end);
         diff = DURATION;
